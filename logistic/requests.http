@@ -1,0 +1,140 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api/v1
+
+###
+
+# получение складов
+GET {{baseUrl}}/stocks/?page=1
+Content-Type: application/json
+
+###
+
+# получение продуктов
+GET {{baseUrl}}/products/?limit=2&offset=2
+Content-Type: application/json
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Помидор",
+  "description": "Лучшие помидоры на рынке"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Огурец",
+  "description": "Огурцы тоже ничего"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Кабачок",
+  "description": "Кабачки самые большие"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Арбуз",
+  "description": "А арбузы самые сладкие"
+}
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/6/
+Content-Type: application/json
+
+{
+  "title": "Арбуз астраханский",
+  "description": "Очень большой"
+}
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/5/
+Content-Type: application/json
+
+###
+
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?search=поми
+Content-Type: application/json
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "МИхеева, 4",
+  "positions": [
+    {
+      "product": 6,
+      "quantity": 250,
+      "price": 120.50
+    },
+    {
+      "product": 3,
+      "quantity": 100,
+      "price": 180
+    }
+  ]
+}
+
+###
+# удаление склада
+
+DELETE {{baseUrl}}/stocks/9/
+Content-Type: application/json
+
+###
+
+# обновляем записи на складе
+PATCH {{baseUrl}}/stocks/10/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 6,
+      "quantity": 120,
+      "price": 130.80
+    },
+    {
+      "product": 3,
+      "quantity": 243,
+      "price": 145
+    }
+  ]
+}
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?products=6
+Content-Type: application/json
+
+###
+
